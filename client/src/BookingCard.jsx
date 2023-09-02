@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import styled from "styled-components";
 import { useMutation, useQueryClient } from "react-query";
 
 const BookingCard = ({ booking }) => {
@@ -44,15 +45,22 @@ const BookingCard = ({ booking }) => {
 
     return (
         <>
-            <h3>Reservation for: {booking.name}</h3>
-            <p>Contact email: {booking.email}</p>
-            <label>
-                <input type="checkbox" checked={booking.checked_in} onChange={handleCheckInToggle} />
-                Checked In
-            </label>
-            <button onClick={handleDelete}>Delete</button>
+            <FlexVert>
+                <h3>Reservation for: {booking.name}</h3>
+                <p>Contact email: {booking.email}</p>
+                <label>
+                    <input type="checkbox" checked={booking.checked_in} onChange={handleCheckInToggle} />
+                    Checked In
+                </label>
+                <button onClick={handleDelete}>Delete</button>
+            </FlexVert>
         </>
     );
 };
+
+const FlexVert = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 export default BookingCard;

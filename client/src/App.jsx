@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import "./App.css";
 import axios from "axios";
@@ -24,12 +25,16 @@ function App() {
 
     return (
         <>
-            <div>
+            <Container>
                 <BookingForm />
                 <BookingGrid bookings={data} />
-            </div>
+            </Container>
         </>
     );
 }
+
+const Container = styled.div`
+    margin: 0 10%;
+`;
 
 export default App;
