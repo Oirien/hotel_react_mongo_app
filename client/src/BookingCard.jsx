@@ -46,13 +46,21 @@ const BookingCard = ({ booking }) => {
     return (
         <>
             <FlexVert>
-                <h3>Reservation for: {booking.name}</h3>
-                <p>Contact email: {booking.email}</p>
-                <label>
-                    <input type="checkbox" checked={booking.checked_in} onChange={handleCheckInToggle} />
-                    Checked In
-                </label>
-                <button onClick={handleDelete}>Delete</button>
+                <div>
+                    <h3>Reservation for: </h3>
+                    <h3>{booking.name}</h3>
+                </div>
+                <div>
+                    <p>Contact email: </p>
+                    <p>{booking.email}</p>
+                </div>
+                <Interactive>
+                    <label>
+                        <input type="checkbox" checked={booking.checked_in} onChange={handleCheckInToggle} />
+                        Checked In
+                    </label>
+                    <Delete onClick={handleDelete}>Delete</Delete>
+                </Interactive>
             </FlexVert>
         </>
     );
@@ -61,6 +69,21 @@ const BookingCard = ({ booking }) => {
 const FlexVert = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+    background-color: lightblue;
+    width: 30%;
+`;
+
+const Interactive = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+`;
+
+const Delete = styled.button`
+    padding: 0.5rem;
+    width: 8rem;
 `;
 
 export default BookingCard;

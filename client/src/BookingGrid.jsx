@@ -4,19 +4,21 @@ import styled from "styled-components";
 
 const BookingGrid = ({ bookings }) => {
     return (
-        <Flex>
-            {bookings.map(booking => (
-                <BookingCard booking={booking} key={booking._id} />
-            ))}
-        </Flex>
+        <>
+            <h1>Booking List</h1>
+            <Flex>
+                {bookings.map(booking => (
+                    <BookingCard booking={booking} key={booking._id} />
+                ))}
+            </Flex>
+        </>
     );
 };
 
 const Flex = styled.div`
+    gap: 2rem;
     display: flex;
-    max-width: 30%;
-    width: 100%;
-    gap: 1rem;
+    margin-top: 2rem;
 `;
 
 export default BookingGrid;
